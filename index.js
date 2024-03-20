@@ -1,6 +1,5 @@
-import routes from "./src/routes/crmRoutes";
+// import routes from "./src/routes/crmRoutes";
 const express = require("express");
 const app = express();
 
-
-
+console.log("Main");
