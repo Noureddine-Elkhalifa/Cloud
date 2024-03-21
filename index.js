@@ -2,4 +2,4 @@
 const express = require("express");
 const app = express();
 
-console.log("lab02");
+console.log("Main");
