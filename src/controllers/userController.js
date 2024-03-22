@@ -43,7 +43,6 @@ export const login = (req, res) => {
                 return res.status(401).json({ message: "Authentication failed. Passwords do not match" });
             }
 
-            // Passwords match, you can proceed with authentication logic here
             const token = jwt.sign({ email: user.email, _id: user._id },'RESTFULAPIs');
             return res.json({ token });
         })
