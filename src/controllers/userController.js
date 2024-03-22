@@ -44,7 +44,7 @@ export const login = (req, res) => {
             }
 
             // Passwords match, you can proceed with authentication logic here
-            const token = jwt.sign({ email: user.email, _id: user._id }, process.env.JWT_SECRET);
+            const token = jwt.sign({ email: user.email, _id: user._id },'RESTFULAPIs');
             return res.json({ token });
         })
         .catch(err => {
