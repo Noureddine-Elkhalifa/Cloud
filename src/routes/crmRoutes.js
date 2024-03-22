@@ -1,5 +1,5 @@
 import { addNewContact, getContacts, getContactWithID, updateContact, deleteContact } from "../controllers/crmController.js";
-import { login,register,loginRequired } from "../controllers/crmController.js";
+import { loginRequired,register,login } from "../controllers/userController.js";
 const routes = (app) => {
 
     app.route('/contact')

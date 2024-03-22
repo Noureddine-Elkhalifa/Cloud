@@ -7,7 +7,10 @@ const app = express();
 const PORT = 3000;
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/mydb');
+mongoose.connect('mongodb://localhost/mydb',{
+    useNewUrlParser:true,
+    useUnifiedTopology:true
+});
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

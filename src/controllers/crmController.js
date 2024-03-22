@@ -1,10 +1,10 @@
 import  mongoose  from "mongoose";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { UserSchema,ContactSchema } from "../models/crmModel.js";
+import { ContactSchema } from "../models/crmModel.js";
 
 const Contact = mongoose.model("Contact", ContactSchema);
-const User = mongoose.model("User",UserSchema);
+
 
 
 
@@ -69,44 +69,3 @@ export const deleteContact = async (req, res) => {
 };
 
 
-export const loginRequired = (req,res,next) =>
-{
-    if(req.user)
-        next();
-    else
-    return res.status(401).json({message:'Unauthoriwes user!'})
-}
-
-export const register = (req,res) =>
-{
-    const newUser = new User(req.body);
-    newUser.hashPassword = bcrypt.hashSync(req.body.password,10);
-    newUser.save((err,user)=>{
-        if(err)
-        {
-            return res.status(400).send({message:err});
-        }
-        else
-        {
-            user.hashPassword = undefined;
-            return res.json(user)
-        }
-    })
-}
-
-export const login = (req,res) =>
-{
-    User.findOne({email:req.body.email})
-    .then(user => {
-        if(!user){
-            return res.status(401).json({message:"Authentication failed0 No user found"});
-        }
-
-        if(!user.comparePassword(rea.body.password, user.hashPassword))
-        {
-            return res.status
-        }
-    })
-            
-            
-}
